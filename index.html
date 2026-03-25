@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardiovascular Training & Physiology | Jim Wang</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(229, 231, 235, 0.5);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .zone-0 { background-color: #f3f4f6; }
+        .zone-1 { background-color: #d1fae5; border-left: 4px solid #10b981; }
+        .zone-2 { background-color: #dcfce7; border-left: 4px solid #22c55e; }
+        .zone-3 { background-color: #fef9c3; border-left: 4px solid #eab308; }
+        .zone-4 { background-color: #ffedd5; border-left: 4px solid #f97316; }
+        .zone-5 { background-color: #fee2e2; border-left: 4px solid #ef4444; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 scroll-smooth">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center space-x-2">
+                    <i class="fa-solid fa-heart-pulse text-blue-600 text-2xl"></i>
+                    <span class="font-bold text-xl tracking-tight">CardioPhys</span>
+                </div>
+                <div class="hidden md:flex space-x-8 font-medium text-sm text-slate-600">
+                    <a href="#basics" class="hover:text-blue-600 transition">Basics</a>
+                    <a href="#systems" class="hover:text-blue-600 transition">Systems</a>
+                    <a href="#zones" class="hover:text-blue-600 transition">HR Zones</a>
+                    <a href="#training" class="hover:text-blue-600 transition">Training</a>
+                    <a href="#fatloss" class="hover:text-blue-600 transition">Fat Loss</a>
+                </div>
+                <button class="md:hidden text-slate-600" id="mobile-menu-btn">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="pt-32 pb-16 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight">
+                Master Your <span class="gradient-text">Physiology.</span>
+            </h1>
+            <p class="text-xl text-slate-600 mb-8 leading-relaxed">
+                A comprehensive guide to cardiovascular training based on the principles of efficiency, metabolic pathways, and long-term health.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#training" class="bg-blue-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-blue-700 transition shadow-lg shadow-blue-200">Start Training</a>
+                <a href="#zones" class="bg-white border border-slate-200 px-8 py-3 rounded-full font-semibold hover:bg-slate-50 transition">Check HR Zones</a>
+            </div>
+            <p class="mt-8 text-sm text-slate-400 font-medium italic">Content by Jim Wang</p>
+        </div>
+    </header>
+
+    <!-- Basics Section -->
+    <section id="basics" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold mb-6">What Is Cardiovascular Training?</h2>
+                    <p class="text-lg text-slate-600 mb-6">
+                        Commonly called "cardio," the goal is to challenge your heart, lungs, and blood vessels to become more efficient at delivering oxygen to your muscles and clearing out metabolic waste.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-start p-4 rounded-xl bg-blue-50 border border-blue-100">
+                            <div class="bg-blue-600 text-white p-2 rounded-lg mr-4 mt-1"><i class="fa-solid fa-gauge-high"></i></div>
+                            <div>
+                                <h4 class="font-bold">Increased Heart Rate</h4>
+                                <p class="text-slate-600 text-sm">Targets >50% of your Maximum Heart Rate (MHR).</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start p-4 rounded-xl bg-purple-50 border border-purple-100">
+                            <div class="bg-purple-600 text-white p-2 rounded-lg mr-4 mt-1"><i class="fa-solid fa-clock"></i></div>
+                            <div>
+                                <h4 class="font-bold">Sustained Duration</h4>
+                                <p class="text-slate-600 text-sm">Typically requires a session length of 10+ minutes.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start p-4 rounded-xl bg-indigo-50 border border-indigo-100">
+                            <div class="bg-indigo-600 text-white p-2 rounded-lg mr-4 mt-1"><i class="fa-solid fa-bolt"></i></div>
+                            <div>
+                                <h4 class="font-bold">Energy Systems</h4>
+                                <p class="text-slate-600 text-sm">Utilizes phosphagen, glycolytic, and oxidative pathways.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-slate-100 rounded-3xl h-64 flex flex-col items-center justify-center p-6 text-center">
+                        <i class="fa-solid fa-person-walking text-4xl text-blue-500 mb-4"></i>
+                        <span class="font-bold">Zone 2</span>
+                        <span class="text-sm text-slate-500 italic">"The Foundation"</span>
+                    </div>
+                    <div class="bg-slate-900 rounded-3xl h-64 flex flex-col items-center justify-center p-6 text-center text-white mt-8">
+                        <i class="fa-solid fa-fire text-4xl text-orange-500 mb-4"></i>
+                        <span class="font-bold">HIIT</span>
+                        <span class="text-sm text-slate-400 italic">"The Ceiling"</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Energy Systems Section -->
+    <section id="systems" class="py-20 bg-slate-50 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">Metabolic Pathways (Physiology)</h2>
+                <p class="text-slate-600">The body uses three systems to produce ATP—the only energy currency of our cells.</p>
+                <div class="mt-6 text-xl font-mono bg-white inline-block px-6 py-2 rounded-full shadow-sm border border-slate-200">
+                    ATP &hArr; ADP + Energy &hArr; AMP + Energy
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Phosphagen -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-md transition border border-slate-200">
+                    <div class="text-rose-600 font-bold mb-2 uppercase text-xs tracking-widest">High Power</div>
+                    <h3 class="text-2xl font-bold mb-4">Phosphagen</h3>
+                    <ul class="space-y-3 text-slate-600">
+                        <li><span class="font-semibold text-slate-900">Used In:</span> Sprinting, 1RM, Jumping</li>
+                        <li><span class="font-semibold text-slate-900">Duration:</span> 0 - 10 Seconds</li>
+                        <li><span class="font-semibold text-slate-900 text-sm">Fuel:</span> Stored ATP / Creatine</li>
+                    </ul>
+                    <div class="mt-6 h-2 w-full bg-slate-100 rounded-full overflow-hidden">
+                        <div class="h-full bg-rose-500 w-[100%]"></div>
+                    </div>
+                </div>
+
+                <!-- Glycolytic -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-md transition border border-slate-200">
+                    <div class="text-amber-600 font-bold mb-2 uppercase text-xs tracking-widest">Moderate Power</div>
+                    <h3 class="text-2xl font-bold mb-4">Glycolytic</h3>
+                    <ul class="space-y-3 text-slate-600">
+                        <li><span class="font-semibold text-slate-900">Used In:</span> 400m, HIIT, 12 Reps</li>
+                        <li><span class="font-semibold text-slate-900">Duration:</span> 10s - 2 Minutes</li>
+                        <li><span class="font-semibold text-slate-900 text-sm">Fuel:</span> Blood Glucose / Glycogen</li>
+                    </ul>
+                    <div class="mt-6 h-2 w-full bg-slate-100 rounded-full overflow-hidden">
+                        <div class="h-full bg-amber-500 w-[60%]"></div>
+                    </div>
+                </div>
+
+                <!-- Oxidative -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-md transition border border-slate-200">
+                    <div class="text-emerald-600 font-bold mb-2 uppercase text-xs tracking-widest">Sustainable Power</div>
+                    <h3 class="text-2xl font-bold mb-4">Oxidative</h3>
+                    <ul class="space-y-3 text-slate-600">
+                        <li><span class="font-semibold text-slate-900">Used In:</span> Walking, Zone 2</li>
+                        <li><span class="font-semibold text-slate-900">Duration:</span> 2m - Several Hours</li>
+                        <li><span class="font-semibold text-slate-900 text-sm">Fuel:</span> Fats / Carbs + Oxygen</li>
+                    </ul>
+                    <div class="mt-6 h-2 w-full bg-slate-100 rounded-full overflow-hidden">
+                        <div class="h-full bg-emerald-500 w-[20%]"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VO2 Max Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="bg-slate-900 rounded-[3rem] p-8 md:p-16 text-white overflow-hidden relative">
+                <div class="relative z-10 grid lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <span class="bg-blue-600 px-3 py-1 rounded-full text-xs font-bold uppercase mb-4 inline-block">Vital Metric</span>
+                        <h2 class="text-4xl font-bold mb-6">VO2 Max: The Longevity Predictor</h2>
+                        <p class="text-slate-400 text-lg mb-8">
+                            The strongest single predictor of long-term survival. Increasing your VO2 max by just <span class="text-white font-bold">1 unit</span> can add <span class="text-white font-bold">45 days</span> to your life.
+                        </p>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-slate-800 p-4 rounded-2xl">
+                                <div class="text-slate-400 text-xs mb-1">Average Adult</div>
+                                <div class="text-2xl font-bold">30 - 40</div>
+                            </div>
+                            <div class="bg-slate-800 p-4 rounded-2xl">
+                                <div class="text-slate-400 text-xs mb-1">Elite Athlete</div>
+                                <div class="text-2xl font-bold text-blue-400">75 - 85</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white/5 backdrop-blur-xl p-8 rounded-3xl border border-white/10">
+                        <h4 class="font-bold text-xl mb-4">Rockport 1-Mile Test</h4>
+                        <p class="text-sm text-slate-400 mb-6">Walk 1 mile as fast as possible. Use your time and heart rate in the formula:</p>
+                        <div class="p-4 bg-black/40 rounded-xl font-mono text-xs text-blue-300 leading-relaxed">
+                            VO2 Max = 132.853 - (0.0769 × Weight lbs) - (0.3877 × Age) + (6.315 if Male, 0 if Female) - (3.2649 × Time min) - (0.1565 × HR bpm)
+                        </div>
+                    </div>
+                </div>
+                <!-- Abstract visual element -->
+                <div class="absolute -right-20 -bottom-20 w-96 h-96 bg-blue-600/20 blur-[100px] rounded-full"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Heart Rate Zones & Calculator -->
+    <section id="zones" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">Heart Rate Zones</h2>
+                <p class="text-slate-600">Tailor your intensity to specific physiological benefits.</p>
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-12">
+                <!-- Calculator Side -->
+                <div class="lg:col-span-4 space-y-6">
+                    <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200">
+                        <h3 class="font-bold text-xl mb-6 flex items-center">
+                            <i class="fa-solid fa-calculator text-blue-600 mr-2"></i> MHR Calculator
+                        </h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 mb-1">Age</label>
+                                <input type="number" id="calc-age" value="30" class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
+                            </div>
+                            <button onclick="calculateMHR()" class="w-full bg-slate-900 text-white py-3 rounded-lg font-bold hover:bg-black transition">Calculate</button>
+                            
+                            <div class="pt-4 space-y-3">
+                                <div class="flex justify-between items-center p-3 bg-slate-50 rounded-lg">
+                                    <span class="text-sm font-medium">Fox Formula</span>
+                                    <span id="res-fox" class="font-bold text-lg">190 bpm</span>
+                                </div>
+                                <div class="flex justify-between items-center p-3 bg-blue-50 rounded-lg text-blue-700">
+                                    <span class="text-sm font-medium">Tanaka (Modern)</span>
+                                    <span id="res-tanaka" class="font-bold text-lg">187 bpm</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-blue-600 p-8 rounded-3xl shadow-sm text-white">
+                        <h3 class="font-bold text-xl mb-4">RMR Calculator</h3>
+                        <div class="space-y-3 text-sm">
+                            <input type="number" id="rmr-weight" placeholder="Weight (kg)" class="w-full bg-white/10 border border-white/20 p-2 rounded outline-none placeholder:text-white/50">
+                            <input type="number" id="rmr-height" placeholder="Height (cm)" class="w-full bg-white/10 border border-white/20 p-2 rounded outline-none placeholder:text-white/50">
+                            <div class="flex gap-2">
+                                <select id="rmr-gender" class="flex-1 bg-white/10 border border-white/20 p-2 rounded outline-none">
+                                    <option value="male" class="text-slate-900">Male</option>
+                                    <option value="female" class="text-slate-900">Female</option>
+                                </select>
+                                <input type="number" id="rmr-age" placeholder="Age" class="w-full bg-white/10 border border-white/20 p-2 rounded outline-none placeholder:text-white/50">
+                            </div>
+                            <button onclick="calculateRMR()" class="w-full bg-white text-blue-600 py-2 rounded font-bold hover:bg-slate-100 transition">Get RMR</button>
+                            <div id="rmr-result" class="text-center font-bold text-lg mt-2">-- kcal/day</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Zones Table -->
+                <div class="lg:col-span-8 overflow-x-auto">
+                    <div class="min-w-[600px] bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden">
+                        <table class="w-full text-left">
+                            <thead class="bg-slate-50 border-b border-slate-200">
+                                <tr>
+                                    <th class="px-6 py-4 font-bold">Zone</th>
+                                    <th class="px-6 py-4 font-bold">% MHR</th>
+                                    <th class="px-6 py-4 font-bold">Intensity</th>
+                                    <th class="px-6 py-4 font-bold">Primary Benefit</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-100">
+                                <tr class="zone-1">
+                                    <td class="px-6 py-4 font-bold">Zone 1</td>
+                                    <td class="px-6 py-4">50-60%</td>
+                                    <td class="px-6 py-4">Very Light</td>
+                                    <td class="px-6 py-4 text-sm">Active Recovery, Warm-up</td>
+                                </tr>
+                                <tr class="zone-2">
+                                    <td class="px-6 py-4 font-bold">Zone 2</td>
+                                    <td class="px-6 py-4">60-70%</td>
+                                    <td class="px-6 py-4">Light (Talk easily)</td>
+                                    <td class="px-6 py-4 text-sm font-semibold text-emerald-700">Mitochondrial health, fat metabolism</td>
+                                </tr>
+                                <tr class="zone-3">
+                                    <td class="px-6 py-4 font-bold">Zone 3</td>
+                                    <td class="px-6 py-4">70-80%</td>
+                                    <td class="px-6 py-4">Moderate</td>
+                                    <td class="px-6 py-4 text-sm">Blood circulation efficiency</td>
+                                </tr>
+                                <tr class="zone-4">
+                                    <td class="px-6 py-4 font-bold">Zone 4</td>
+                                    <td class="px-6 py-4">80-90%</td>
+                                    <td class="px-6 py-4">Hard (Gasping)</td>
+                                    <td class="px-6 py-4 text-sm">Lactate threshold, speed/power</td>
+                                </tr>
+                                <tr class="zone-5">
+                                    <td class="px-6 py-4 font-bold">Zone 5</td>
+                                    <td class="px-6 py-4">90-100%</td>
+                                    <td class="px-6 py-4">Maximum</td>
+                                    <td class="px-6 py-4 text-sm font-semibold text-rose-700">VO2 Max, Peak performance</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 80/20 Training Strategy -->
+    <section id="training" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="order-2 lg:order-1">
+                    <div class="inline-block p-4 bg-blue-600 rounded-3xl mb-8">
+                        <div class="flex text-white font-bold text-4xl">
+                            <span class="mr-4">80%</span>
+                            <span class="opacity-40">20%</span>
+                        </div>
+                    </div>
+                    <h2 class="text-4xl font-bold mb-6 italic text-slate-800">The 80/20 Rule</h2>
+                    <p class="text-lg text-slate-600 mb-8 leading-relaxed">
+                        To see the best results, avoid the "Gray Zone" (Zones 3 & 4). 
+                        Spend 80% of your time in <span class="text-emerald-600 font-bold underline decoration-2 underline-offset-4">Zone 2</span> to build your aerobic base, and 20% in <span class="text-rose-600 font-bold underline decoration-2 underline-offset-4">HIIT</span> to raise your ceiling.
+                    </p>
+                    <div class="space-y-6">
+                        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200">
+                            <h4 class="font-bold text-lg mb-2 flex items-center">
+                                <i class="fa-solid fa-circle-check text-emerald-500 mr-2"></i> Zone 2 Protocol
+                            </h4>
+                            <p class="text-slate-600 text-sm">Aim for 180-240 min/week. Intensity where you can talk but it's rhythmic. 45+ mins per session is ideal.</p>
+                        </div>
+                        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200">
+                            <h4 class="font-bold text-lg mb-2 flex items-center">
+                                <i class="fa-solid fa-fire-flame-curved text-rose-500 mr-2"></i> HIIT Protocol
+                            </h4>
+                            <p class="text-slate-600 text-sm">Only 1-2 times/week. Try the Norwegian 4x4: 4 mins at >90% MHR, followed by 3 mins active rest.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="order-1 lg:order-2">
+                    <div class="bg-slate-100 p-8 rounded-[4rem] relative overflow-hidden">
+                        <h4 class="text-xl font-bold mb-6 text-center">Avoid the "Gray Zone"</h4>
+                        <div class="space-y-4 relative z-10">
+                            <div class="bg-white p-4 rounded-xl border-l-4 border-slate-300 text-slate-400">Zone 5: Performance Peak</div>
+                            <div class="bg-red-50 p-6 rounded-xl border-2 border-red-200 border-dashed text-center">
+                                <span class="block font-bold text-red-600">GRAY ZONE (3 & 4)</span>
+                                <span class="text-xs text-red-500">Not intense enough for VO2 Max, too intense for fat burn. High fatigue, low ROI.</span>
+                            </div>
+                            <div class="bg-white p-4 rounded-xl border-l-4 border-slate-300 text-slate-400">Zone 1: Recovery</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Metabolism Section -->
+    <section id="fatloss" class="py-20 bg-slate-900 text-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">Metabolism & Homeostasis</h2>
+                <p class="text-slate-400">Cardio is only one piece of the puzzle.</p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Comparison Table -->
+                <div class="bg-white/5 rounded-3xl p-8 border border-white/10">
+                    <h3 class="text-2xl font-bold mb-8 flex items-center">
+                        <i class="fa-solid fa-scale-balanced text-blue-400 mr-4"></i> Weight Training vs. Cardio
+                    </h3>
+                    <div class="space-y-6">
+                        <div class="grid grid-cols-3 pb-4 border-b border-white/10 text-slate-400 text-xs font-bold uppercase">
+                            <span>Feature</span>
+                            <span>Weight Training</span>
+                            <span>Cardio</span>
+                        </div>
+                        <div class="grid grid-cols-3">
+                            <span class="text-slate-400">Metabolism</span>
+                            <span class="text-emerald-400">Anabolic</span>
+                            <span class="text-orange-400">Catabolic</span>
+                        </div>
+                        <div class="grid grid-cols-3">
+                            <span class="text-slate-400">Pathway</span>
+                            <span>mTOR</span>
+                            <span>AMPK</span>
+                        </div>
+                        <div class="grid grid-cols-3">
+                            <span class="text-slate-400">Hormones</span>
+                            <span class="text-xs">GH, Test, Insulin</span>
+                            <span class="text-xs">Cortisol, Glucagon</span>
+                        </div>
+                        <div class="grid grid-cols-3">
+                            <span class="text-slate-400">Tissue Effect</span>
+                            <span class="text-xs">Growth, Bone Density</span>
+                            <span class="text-xs">Fat Burn, Breakdown</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fat Loss Hierarchy -->
+                <div class="space-y-6">
+                    <h3 class="text-2xl font-bold mb-4">Fat Loss Hierarchy</h3>
+                    <p class="text-slate-400 mb-6">If you want to lose fat effectively, follow this order of priority:</p>
+                    <div class="space-y-4">
+                        <div class="flex items-center bg-white/5 p-4 rounded-2xl border border-white/10">
+                            <span class="w-8 h-8 flex items-center justify-center bg-blue-500 rounded-full mr-4 font-bold">1</span>
+                            <div>
+                                <h5 class="font-bold">Dietary Structure</h5>
+                                <p class="text-xs text-slate-400">Sustainable energy deficit</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center bg-white/5 p-4 rounded-2xl border border-white/10">
+                            <span class="w-8 h-8 flex items-center justify-center bg-blue-500/80 rounded-full mr-4 font-bold">2</span>
+                            <div>
+                                <h5 class="font-bold">Strength Training</h5>
+                                <p class="text-xs text-slate-400">Prevent metabolic decline</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center bg-white/5 p-4 rounded-2xl border border-white/10">
+                            <span class="w-8 h-8 flex items-center justify-center bg-blue-500/60 rounded-full mr-4 font-bold">3</span>
+                            <div>
+                                <h5 class="font-bold">NEAT</h5>
+                                <p class="text-xs text-slate-400">Daily movement (10k steps)</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center bg-white/5 p-4 rounded-2xl border border-white/10 opacity-60">
+                            <span class="w-8 h-8 flex items-center justify-center bg-blue-500/40 rounded-full mr-4 font-bold">4</span>
+                            <div>
+                                <h5 class="font-bold">Cardio & HIIT</h5>
+                                <p class="text-xs text-slate-400">The finishing touch</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-50 py-12 border-t border-slate-200 text-center">
+        <div class="max-w-7xl mx-auto px-4">
+            <i class="fa-solid fa-heart-pulse text-slate-300 text-3xl mb-4"></i>
+            <p class="text-slate-500 text-sm">"The body needs both Weight Training and Cardio to maintain homeostasis."</p>
+            <p class="mt-4 text-xs font-bold text-slate-400 uppercase tracking-widest">A Summary by Jim Wang</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        function calculateMHR() {
+            const age = parseInt(document.getElementById('calc-age').value);
+            if (!age) return;
+
+            const fox = 220 - age;
+            const tanaka = Math.round(208 - (0.7 * age));
+
+            document.getElementById('res-fox').textContent = `${fox} bpm`;
+            document.getElementById('res-tanaka').textContent = `${tanaka} bpm`;
+        }
+
+        function calculateRMR() {
+            const weight = parseFloat(document.getElementById('rmr-weight').value);
+            const height = parseFloat(document.getElementById('rmr-height').value);
+            const age = parseInt(document.getElementById('rmr-age').value);
+            const gender = document.getElementById('rmr-gender').value;
+
+            if (!weight || !height || !age) {
+                document.getElementById('rmr-result').textContent = "Input missing";
+                return;
+            }
+
+            // Mifflin-St Jeor Equation
+            let rmr = (10 * weight) + (6.25 * height) - (5 * age);
+            if (gender === 'male') {
+                rmr += 5;
+            } else {
+                rmr -= 161;
+            }
+
+            document.getElementById('rmr-result').textContent = `${Math.round(rmr)} kcal/day`;
+        }
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        menuBtn.addEventListener('click', () => {
+            // Simple visual cue since it's a single file and we don't want complex CSS transitions for the menu
+            const navLinks = document.querySelector('.md\\:flex');
+            navLinks.classList.toggle('hidden');
+            navLinks.classList.toggle('absolute');
+            navLinks.classList.toggle('top-16');
+            navLinks.classList.toggle('left-0');
+            navLinks.classList.toggle('w-full');
+            navLinks.classList.toggle('bg-white');
+            navLinks.classList.toggle('p-6');
+            navLinks.classList.toggle('shadow-lg');
+            navLinks.classList.toggle('flex-col');
+            navLinks.classList.toggle('space-y-4');
+        });
+    </script>
+</body>
+</html>
